@@ -1,31 +1,38 @@
 <template>
   <div class="maincontainer">
-    <div class="thecard">
-      <div class="thefront">
+    <sui-card class="raised centered card">
+      <sui-card-content class="card__front orange">
+        <sui-card-header>Cute Dog</sui-card-header>
         <h1>Front of Card</h1>
-        <p>
-          This is the front of the card. It contains important information.
-          Please see overleaf for more details.
-        </p>
-      </div>
-
-      <div class="theback">
-        <h1>Back of Card</h1>
-        <p>
-          Your use of this site is subject to the terms and conditions governing
-          this and all transactions.
-        </p>
-        <button>Submit</button>
-      </div>
-    </div>
+        <p>Front...</p>
+      </sui-card-content>
+      <sui-card-content extra class="card__back blue">
+        <sui-card-header>Translation</sui-card-header>
+        <p>Translation...</p>
+        <sui-button basic positive @click="handleCorrectAnswer"
+          >Correct</sui-button
+        >
+        <sui-button basic negative>Wrong</sui-button>
+      </sui-card-content>
+    </sui-card>
   </div>
 </template>
 
 <script>
+import * as APIresponse from "../../assets/APIresponse.json";
+
+const cardsData = APIresponse.default;
+
 export default {
-  name: "FlashCard",
+  name: "SingleCard",
   props: {
-    msg: String
+    word: String,
+    translation: String
+  },
+  computed: {
+    handleCorrectAnswer: () => {
+      console.log("debug📍: SingleCard 33", cardsData);
+    }
   }
 };
 </script>
@@ -44,7 +51,7 @@ export default {
 }
 
 /* THE CARD HOLDS THE FRONT AND BACK FACES */
-.thecard {
+.card {
   position: relative;
   top: 0;
   left: 0;
@@ -56,12 +63,12 @@ export default {
 }
 
 /* THE PSUEDO CLASS CONTROLS THE FLIP ON MOUSEOVER AND MOUSEOUT */
-.thecard:hover {
+.card:hover {
   transform: rotateY(180deg);
 }
 
 /* THE FRONT FACE OF THE CARD, WHICH SHOWS BY DEFAULT */
-.thefront {
+.card__front {
   position: absolute;
   top: 0;
   left: 0;
@@ -75,7 +82,7 @@ export default {
 }
 
 /* THE BACK FACE OF THE CARD, WHICH SHOWS ON MOUSEOVER */
-.theback {
+.card__back {
   position: absolute;
   top: 0;
   left: 0;
@@ -91,8 +98,8 @@ export default {
 }
 
 /*This block (starts here) is merely styling for the flip card, and is NOT an essential part of the flip code */
-.thefront h1,
-.theback h1 {
+.card__front h1,
+.card__back h1 {
   font-family: "zilla slab", sans-serif;
   padding: 30px;
   font-weight: bold;
@@ -100,13 +107,12 @@ export default {
   text-align: center;
 }
 
-.thefront p,
-.theback p {
+.card__front p,
+.card__back p {
   font-family: "zilla slab", sans-serif;
   padding: 30px;
   font-weight: normal;
   font-size: 12px;
   text-align: center;
 }
-/*This block (ends here) is merely styling for the flip card, and is NOT an essential part of the flip code */
 </style>
