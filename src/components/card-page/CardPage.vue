@@ -2,7 +2,8 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <div>CARDS</div>
-    <SingleCard v-for="entity in cards" :key="entity.id" />
+    <!-- <SingleCard v-for="entity in formatedCards" :key="entity.id" /> -->
+    <SingleCard />
   </div>
 </template>
 
@@ -14,9 +15,30 @@ export default {
   name: "CardPage",
   components: { SingleCard },
   data: () => {
+    const languageNative = "en";
+    const languageToLearn = "es";
     const cards = APIresponse.default;
-    console.log("debug📍: CardPage 18", cards);
-    return { cards };
+    // TO DO: filter by content type
+    const getFrontAndBackCard = card => {
+      let frontCard = null;
+      let backCard = null;
+
+      card.representations.forEach(repr => {
+        if (repr.type !== "text") return;
+
+        if (repr.language.indexOf(languageNative) === 0) {
+          frontCard = repr.content;
+        } else if (repr.language.indexOf(languageToLearn) === 0) {
+          backCard = repr.content;
+        }
+      });
+
+      return frontCard && backCard && { frontCard, backCard };
+    };
+
+    const formatedCards = cards.map(getFrontAndBackCard);
+    console.log("debug📍: CardPage 18", formatedCards);
+    return { cards: formatedCards };
   },
   props: {
     msg: String
