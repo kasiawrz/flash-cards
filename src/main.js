@@ -1,6 +1,9 @@
 import Vue from "vue";
 import App from "./App.vue";
 import store from "./store";
+// import * as APIresponse from "./assets/APIresponse.json";
+
+// const cardsData = APIresponse.default;
 
 // const dictionaryAPIurl =
 // "https://s3-eu-west-1.amazonaws.com/hungarian.phrasebook/example_get_entities.json";
