@@ -1,19 +1,16 @@
 <template>
   <div id="app">
     <CardPage msg="HEEEEY There" />
-    <SingleCard />
   </div>
 </template>
 
 <script>
 import CardPage from "./components/card-page/CardPage.vue";
-import SingleCard from "./components/card-page/SingleCard.vue";
 
 export default {
   name: "app",
   components: {
-    CardPage,
-    SingleCard
+    CardPage
   }
 };
 </script>

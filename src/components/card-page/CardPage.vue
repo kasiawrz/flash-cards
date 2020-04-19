@@ -2,12 +2,22 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <div>CARDS</div>
+    <SingleCard v-for="entity in cards" :key="entity.id" />
   </div>
 </template>
 
 <script>
+import SingleCard from "./SingleCard.vue";
+import * as APIresponse from "../../assets/APIresponse.json";
+
 export default {
   name: "CardPage",
+  components: { SingleCard },
+  data: () => {
+    const cards = APIresponse.default;
+    console.log("debug📍: CardPage 18", cards);
+    return { cards };
+  },
   props: {
     msg: String
   }
