@@ -1,15 +1,18 @@
 <template>
   <div id="app">
+    <Header />
     <CardPage msg="HEEEEY There" />
   </div>
 </template>
 
 <script>
 import CardPage from "./components/card-page/CardPage.vue";
+import Header from "./components/header/Header.vue";
 
 export default {
   name: "app",
   components: {
+    Header,
     CardPage
   }
 };

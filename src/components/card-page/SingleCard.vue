@@ -3,7 +3,7 @@
     <sui-card class="raised centered card">
       <sui-card-content class="card__front orange">
         <sui-card-header>Cute Dog</sui-card-header>
-        <h1>Front of Card</h1>
+        <h2>Front of Card</h2>
         <p>Front...</p>
       </sui-card-content>
       <sui-card-content extra class="card__back blue">

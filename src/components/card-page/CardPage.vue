@@ -1,6 +1,6 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
+  <div>
+    <h2>{{ msg }}</h2>
     <div>CARDS</div>
     <!-- <SingleCard v-for="entity in formatedCards" :key="entity.id" /> -->
     <SingleCard />
