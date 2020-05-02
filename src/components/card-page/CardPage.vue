@@ -1,10 +1,11 @@
 <template>
   <div>
-    <h2>{{ msg }}</h2>
-    <div>CARDS</div>
-    <!-- <SingleCard v-for="entity in formatedCards" :key="entity.id" /> -->
+    <h2>
+      {{ msg }}
+      <b>{{ points }}</b>
+    </h2>
     <SingleCard
-      @next-card="getNextCard()"
+      @next-card="getNextCard($event)"
       v-bind:currentCard="cards[currentCardIndex]"
     />
   </div>
@@ -20,7 +21,8 @@ export default {
   data: () => {
     return {
       cards: [],
-      currentCardIndex: 0
+      currentCardIndex: 0,
+      points: 0
     };
   },
   props: {
@@ -37,7 +39,7 @@ export default {
   methods: {
     fetchData: function() {
       const languageNative = "en";
-      const languageToLearn = "es";
+      const languageToLearn = "nl";
       const cards = APIresponse.default;
 
       const getFrontAndBackCard = card => {
@@ -59,14 +61,26 @@ export default {
       };
 
       const formatedCards = cards.map(getFrontAndBackCard);
-      console.log("debug📍: CardPage 18", formatedCards);
+      console.log(
+        "debug📍: CardPage 18",
+        formatedCards.filter(card => card)
+      );
 
-      this.cards = formatedCards;
+      this.cards = formatedCards.filter(card => card);
     },
-    getNextCard: function() {
-      console.log("debug📍: CardPage 61 getting next");
+    getNextCard: function(newPoints) {
+      this.points = this.points + newPoints;
+      console.log(
+        "debug📍: CardPage 61 getting next",
+        this.points,
+        newPoints,
+        arguments
+      );
       if (this.currentCardIndex < this.cards.length) {
         this.currentCardIndex++;
+      } else {
+        // TP DO: after last card
+        console.log(" THE END 🛑");
       }
     }
   }

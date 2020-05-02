@@ -18,7 +18,7 @@
           >Correct 👍🏻</sui-button
         >
         <sui-button basic negative @click="handleAnswer(0)"
-          >Wrong 🛑 {{ counter }}</sui-button
+          >Wrong 🛑</sui-button
         >
       </sui-card-content>
     </sui-card>
@@ -30,8 +30,7 @@
 module.exports = {
   name: "SingleCard",
   props: {
-    currentCard: { type: Object, required: true },
-    counter: Number
+    currentCard: { type: Object, required: true }
   },
   data: () => {
     return {
@@ -51,10 +50,10 @@ module.exports = {
       this.isFlipped = this.isFlipped ? false : true;
       console.log("debug📍: SingleCard 46", this.isFlipped);
     },
-    handleAnswer: function(points) {
-      this.$emit("next-card");
+    handleAnswer: function(newPoints) {
+      console.log("debug📍: SingleCard 33", newPoints);
+      this.$emit("next-card", newPoints);
       this.flipCard();
-      console.log("debug📍: SingleCard 33", points);
     }
   }
 };

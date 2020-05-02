@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header />
-    <CardPage msg="username" />
+    <CardPage msg="Your current score: " />
   </div>
 </template>
 
