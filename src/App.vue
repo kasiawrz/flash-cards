@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header />
-    <CardPage msg="HEEEEY There" />
+    <CardPage msg="username" />
   </div>
 </template>
 

@@ -1,9 +1,12 @@
 <template>
   <div>
     <h2>{{ msg }}</h2>
-    <div>CARDS {{ cards }}</div>
+    <div>CARDS</div>
     <!-- <SingleCard v-for="entity in formatedCards" :key="entity.id" /> -->
-    <SingleCard v-bind:cards="cards[0]" />
+    <SingleCard
+      @next-card="getNextCard()"
+      v-bind:currentCard="cards[currentCardIndex]"
+    />
   </div>
 </template>
 
@@ -15,7 +18,10 @@ export default {
   name: "CardPage",
   components: { SingleCard },
   data: () => {
-    return { cards: [] };
+    return {
+      cards: [],
+      currentCardIndex: 0
+    };
   },
   props: {
     msg: String
@@ -56,6 +62,12 @@ export default {
       console.log("debug📍: CardPage 18", formatedCards);
 
       this.cards = formatedCards;
+    },
+    getNextCard: function() {
+      console.log("debug📍: CardPage 61 getting next");
+      if (this.currentCardIndex < this.cards.length) {
+        this.currentCardIndex++;
+      }
     }
   }
 };

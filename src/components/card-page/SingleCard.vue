@@ -5,16 +5,15 @@
       v-bind:class="{ isFlipped: isFlipped }"
     >
       <sui-card-content class="card__front orange" @click="flipCard">
-        <sui-card-header>Cute Dog</sui-card-header>
-        <h2>Front of Card</h2>
-        <p>Front...</p>
+        <sui-card-header> {{ frontCard.title }} </sui-card-header>
+        <p>{{ frontCard.description }}</p>
         <img
           src="https://img.icons8.com/cute-clipart/64/000000/reply-arrow.png"
         />
       </sui-card-content>
       <sui-card-content extra class="card__back blue">
-        <sui-card-header>Translation</sui-card-header>
-        <p>Translation...</p>
+        <sui-card-header> {{ backCard.title }} </sui-card-header>
+        <p>{{ backCard.description }}</p>
         <sui-button basic positive @click="handleAnswer(1)"
           >Correct 👍🏻</sui-button
         >
@@ -31,7 +30,7 @@
 module.exports = {
   name: "SingleCard",
   props: {
-    currentCard: { type: Object }, //required: true },
+    currentCard: { type: Object, required: true },
     counter: Number
   },
   data: () => {
@@ -39,13 +38,21 @@ module.exports = {
       isFlipped: false
     };
   },
-  computed: {},
+  computed: {
+    frontCard: function() {
+      return this.currentCard.frontCard;
+    },
+    backCard: function() {
+      return this.currentCard.backCard;
+    }
+  },
   methods: {
     flipCard: function() {
       this.isFlipped = this.isFlipped ? false : true;
       console.log("debug📍: SingleCard 46", this.isFlipped);
     },
     handleAnswer: function(points) {
+      this.$emit("next-card");
       this.flipCard();
       console.log("debug📍: SingleCard 33", points);
     }
