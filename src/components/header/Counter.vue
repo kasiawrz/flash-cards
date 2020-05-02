@@ -1,16 +1,13 @@
 <template>
-  <header>
-    <h1>LANGUAGE FLASH CARDS</h1>
-    <Counter />
-  </header>
+  <div>
+    <!-- <b>Your current score</b> -->
+    <span></span>
+  </div>
 </template>
 
 <script>
-import Counter from "./Counter.vue";
-
 export default {
-  name: "Header",
-  components: { Counter }
+  name: "Counter"
 };
 </script>
 
