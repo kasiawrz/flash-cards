@@ -69,7 +69,7 @@
         "type": "text",
         "language": "nl-NL",
         "content": {
-          "title": "Het regent al de hele dag.",
+          "title": "Het regent de hele dag.",
           "description": "het weer"
         }
       },
@@ -90,7 +90,7 @@
         "type": "text",
         "language": "nl-NL",
         "content": {
-          "title": "Ik ging te laat naar bed,",
+          "title": "Ik ging te laat naar bed.",
           "description": "..."
         }
       },
