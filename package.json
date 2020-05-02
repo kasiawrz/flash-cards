@@ -29,17 +29,23 @@
     "vue-template-compiler": "^2.6.10"
   },
   "eslintConfig": {
-    "root": true,
+    "root": false,
     "env": {
       "node": true
     },
     "extends": [
       "plugin:vue/essential",
+      "eslint:recommended",
       "@vue/prettier",
       "plugin:prettier/recommended"
     ],
     "rules": {
-      "no-console": "off"
+      "vue/component-name-in-template-casing": [
+        "error",
+        "PascalCase"
+      ],
+      "no-console": "off",
+      "no-debugger": "off"
     },
     "parserOptions": {
       "parser": "babel-eslint"
