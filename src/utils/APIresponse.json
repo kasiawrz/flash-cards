@@ -132,16 +132,16 @@
         "type": "text",
         "language": "nl-NL",
         "content": {
-          "title": "Het regent de hele dag.",
-          "description": "het weer"
+          "title": "vuilnisbakkenras",
+          "description": "De bastaardhond is een hond die niet tot een bepaald hondenras behoort. 🐶 // vuilnisbakken - garbage can"
         }
       },
       {
         "type": "text",
         "language": "en-US",
         "content": {
-          "title": "It's raining all day long.",
-          "description": "weather"
+          "title": "mongrel 🐕",
+          "description": "mixed-breed dog"
         }
       }
     ]
@@ -153,16 +153,16 @@
         "type": "text",
         "language": "nl-NL",
         "content": {
-          "title": "Het regent al de hele dag.",
-          "description": "het weer"
+          "title": "Bedankt dat je het me hebt laten weten.",
+          "description": "weten - to know"
         }
       },
       {
         "type": "text",
         "language": "en-US",
         "content": {
-          "title": "It's raining all day long.",
-          "description": "weather"
+          "title": "Thanks for letting me know.",
+          "description": "😁"
         }
       }
     ]
